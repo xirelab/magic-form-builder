@@ -46,5 +46,5 @@ Thumbs.db
 
 
 # Api
-/magic-form-builder-api/bin
-/magic-form-builder-api/obj/Debug
+/magic-form-builder-api/magic-form-builder-api/bin
+/magic-form-builder-api/magic-form-builder-api/obj/Debug
