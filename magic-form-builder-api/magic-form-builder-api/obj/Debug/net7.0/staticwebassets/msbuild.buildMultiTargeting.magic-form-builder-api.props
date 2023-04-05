@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/magic-form-builder-api.props" />
+</Project>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1705.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "magic-form-builder-api", "magic-form-builder-api\magic-form-builder-api.csproj", "{D2840C7C-B5F8-4856-82F2-781D143FD140}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D2840C7C-B5F8-4856-82F2-781D143FD140}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2840C7C-B5F8-4856-82F2-781D143FD140}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2840C7C-B5F8-4856-82F2-781D143FD140}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2840C7C-B5F8-4856-82F2-781D143FD140}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {716ED757-EB4F-4123-A89F-84F0A5B1ED67}
+	EndGlobalSection
+EndGlobal
