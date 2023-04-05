@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="../buildMultiTargeting/magic-form-builder-api.props" />
-</Project>
