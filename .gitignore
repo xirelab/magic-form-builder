@@ -43,3 +43,8 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+
+# Api
+/magic-form-builder-api/bin
+/magic-form-builder-api/obj/Debug
