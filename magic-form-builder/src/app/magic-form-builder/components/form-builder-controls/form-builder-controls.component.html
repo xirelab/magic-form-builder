@@ -1,1 +1,13 @@
-<p>form-builder-controls works!</p>
+<form [formGroup]="form">
+    <div [ngSwitch]="control?.Type">
+
+        <!-- TEXT BOX -->
+        <div *ngSwitchCase="types.textbox">
+
+        </div>
+
+        <!-- TEXT AREA -->
+        <div></div>
+
+    </div>
+</form>

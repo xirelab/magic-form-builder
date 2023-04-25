@@ -6,6 +6,13 @@ export class FormBuilderControlModel {
     Key: string;
     Label: string;
 
+    IsRequired?: boolean;   
+    // To be fill rest of the fields
+
+    Status?: number;
+    CreatedBy?: number;
+    CreateDate?: Date;
+
     constructor({ options }: {
         options: {
             formId: number;
