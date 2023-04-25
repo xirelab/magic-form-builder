@@ -2,6 +2,7 @@
 
 # compiled output
 /magic-form-builder/dist
+/magic-form-builder/.angular
 /tmp
 /out-tsc
 # Only exists if Bazel was run
