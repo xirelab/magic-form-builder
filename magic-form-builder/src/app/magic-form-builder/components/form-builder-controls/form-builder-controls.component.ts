@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { FormBuilderControlModel } from '../../models/form-builder-control.model';
 import { FormBuilderControlTypes } from '../../services/form-builder-enums';
@@ -12,7 +12,7 @@ import { FormBuilderControlTypes } from '../../services/form-builder-enums';
 export class FormBuilderControlsComponent implements OnInit {
 
   @Input() control: FormBuilderControlModel | undefined;
-  @Input() form: FormGroup = new FormGroup({});
+  @Input() form: UntypedFormGroup = new UntypedFormGroup({});
 
   formValue: any;
   types = FormBuilderControlTypes;
