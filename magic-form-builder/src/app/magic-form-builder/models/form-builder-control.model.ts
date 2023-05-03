@@ -6,8 +6,9 @@ export class FormBuilderControlModel {
     Key: string;
     Label: string;
 
-    IsRequired?: boolean;   
-    // To be fill rest of the fields
+    IsRequired?: boolean;
+    Width?: number;
+    Position?: string;
 
     Status?: number;
     CreatedBy?: number;
@@ -27,5 +28,9 @@ export class FormBuilderControlModel {
         this.Type = options.type;
         this.Key = options.key;
         this.Label = options.label;
+
+        // this.IsRequired = false;
+        // this.Width = 100;
+        // this.Position = '';
     }
 }

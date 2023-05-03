@@ -7,6 +7,8 @@ import { FormBuilderEditComponent } from './components/form-builder-edit/form-bu
 import { FormBuilderPopupComponent } from './components/form-builder-popup/form-builder-popup.component';
 import { MagicFormBuilderRoutingModule } from './magic-form-builder.routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     MagicFormBuilderRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatInputModule,
+    MatButtonModule
   ]
 })
 export class MagicFormBuilderModule { }

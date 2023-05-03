@@ -3,11 +3,22 @@
 
         <!-- TEXT BOX -->
         <div *ngSwitchCase="types.textbox">
-
+            <mat-form-field appearance="fill" [style.width]="width(control?.Width)" [ngClass]="{
+                'align-left': control?.Position==='left',
+                'align-right': control?.Position==='right',
+                'align-center': control?.Position==='center'}">
+                <mat-label>Input</mat-label>
+                <input matInput>
+            </mat-form-field>
         </div>
 
         <!-- TEXT AREA -->
-        <div></div>
+        <div *ngSwitchCase="types.textarea">
+            <mat-form-field appearance="fill">
+                <mat-label>Textarea</mat-label>
+                <textarea matInput></textarea>
+            </mat-form-field>
+        </div>
 
     </div>
 </form>
