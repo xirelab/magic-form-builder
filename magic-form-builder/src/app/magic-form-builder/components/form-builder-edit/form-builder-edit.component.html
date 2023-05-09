@@ -1,1 +1,44 @@
-<p>form-builder-edit works!</p>
+<div class="form-builder-container">
+	<div class="form-builder-listing">
+		<div>
+			<h1>Form Builder</h1>
+			<br />
+            <div>
+				<mat-form-field appearance="outline" style="width: 100%;">
+					<mat-label>Form Name</mat-label>
+					<input type="text" matInput>
+					<mat-icon matSuffix>edit</mat-icon>
+				</mat-form-field>
+			</div>
+            <div style="width: 100%;">
+				<button style="width: 100%;">
+					Add new Row
+					<mat-icon>add</mat-icon>
+				</button>
+			</div>
+			<br />
+            <div style="width: 100%; display: block;">
+                <div class="menu-container">
+                    <div class="menu-list" 
+                        cdkDropList
+                        cdkDropListSortingDisabled
+                        [cdkDropListData]="menuControls"
+                        [cdkDropListEnterPredicate]="noReturnPredicate">
+                        <div class="menu-box" *ngFor="let item of menuControls" cdkDrag>
+                            {{item.Type}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div style="width: 100%; display: flex;">
+                <button style="width: 100%;">Cancel</button>
+                <button style="width: 100%;">Save</button>
+            </div>
+			
+		</div>
+	</div>
+	<div class="form-builder-view">
+
+	</div>
+</div>

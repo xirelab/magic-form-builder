@@ -9,6 +9,10 @@ import { MagicFormBuilderRoutingModule } from './magic-form-builder.routing.modu
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon'; 
+
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -22,8 +26,12 @@ import { MatButtonModule } from '@angular/material/button';
     CommonModule,
     MagicFormBuilderRoutingModule,
     ReactiveFormsModule,
+    MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule,
+
+    DragDropModule
   ]
 })
 export class MagicFormBuilderModule { }

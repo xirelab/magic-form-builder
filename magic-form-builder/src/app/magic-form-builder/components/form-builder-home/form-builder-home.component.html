@@ -1,1 +1,24 @@
-<p>form-builder-home works!</p>
+<div class="form-builder-container">
+	<div class="form-builder-listing">
+		<div>
+			<h1>Form Builder</h1>
+			<div style="width: 100%;">
+				<button style="width: 100%;" routerLink="./add">
+					Build your Form
+					<mat-icon>add</mat-icon>
+				</button>
+			</div>
+			<br />
+			<div>
+				<mat-form-field appearance="outline" style="width: 100%;">
+					<mat-label>Form Name</mat-label>
+					<input type="text" matInput>
+					<mat-icon matSuffix>search</mat-icon>
+				</mat-form-field>
+			</div>
+		</div>
+	</div>
+	<div class="form-builder-view">
+		<app-form-builder-view></app-form-builder-view>
+	</div>
+</div>
