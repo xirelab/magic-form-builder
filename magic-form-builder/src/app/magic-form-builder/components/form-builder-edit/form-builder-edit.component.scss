@@ -27,3 +27,41 @@
     overflow-x: hidden;
     overflow-y: auto;
 }
+
+.menu-container {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    margin: 0 25px 25px 0;
+    display: inline-block;
+    vertical-align: top;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 10px;
+    margin: 10px;
+    margin-left: 0px;
+    margin-top: -15px;
+}
+
+.menu-list {
+    min-height: 60px;
+    background: white;
+    overflow: hidden;
+    display: block;
+    // background-color: rgb(238, 151, 151);
+}
+
+.menu-box {
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    border: solid 1px white;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    cursor: move;
+    background-color: rgb(173, 241, 142);
+    font-size: 14px;
+    font-weight: 500;
+}

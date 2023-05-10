@@ -44,4 +44,11 @@ export class FormBuilderEditComponent implements OnInit {
     return false;
   } 
 
+  controlArray(): number[] {
+    return new Array<number>(this.numberOfRows);
+  }
+
+  controlColumns(rowNumber: number): number[] {
+    return new Array<number>(this.numberOfColumns[rowNumber]);
+  }
 }

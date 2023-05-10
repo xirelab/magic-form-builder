@@ -7,13 +7,13 @@
 				<mat-form-field appearance="outline" style="width: 100%;">
 					<mat-label>Form Name</mat-label>
 					<input type="text" matInput>
-					<mat-icon matSuffix>edit</mat-icon>
+					<!-- <mat-icon matSuffix>edit</mat-icon> -->
 				</mat-form-field>
 			</div>
             <div style="width: 100%;">
 				<button style="width: 100%;">
 					Add new Row
-					<mat-icon>add</mat-icon>
+					<!-- <mat-icon>add</mat-icon> -->
 				</button>
 			</div>
 			<br />
@@ -35,10 +35,19 @@
                 <button style="width: 100%;">Cancel</button>
                 <button style="width: 100%;">Save</button>
             </div>
-			
 		</div>
 	</div>
 	<div class="form-builder-view">
+        <div class="" *ngFor="let control of controlArray(); let i = index;" >
+            <div class="" *ngFor="let control of controlColumns(i); let j = index;">
+                <div class="">
+                    <div class="">
+                        <div>
 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 	</div>
 </div>
