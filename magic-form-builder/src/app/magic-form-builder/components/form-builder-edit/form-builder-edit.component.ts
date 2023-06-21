@@ -12,6 +12,7 @@ import { FormBuilderControlModel } from '../../models/form-builder-control.model
 })
 export class FormBuilderEditComponent implements OnInit {
 
+  fb: FormBuilder
   form!: FormGroup;
   builderForm!: FormGroup;
   menuControls: FormBuilderControlModel[] = [];
@@ -21,10 +22,12 @@ export class FormBuilderEditComponent implements OnInit {
   numberOfColumns: number[] = [1];
 
   constructor(
-    private fb: FormBuilder,
+    // private fb: FormBuilder,
     // private matDialog: MatDialog,
     // private router: Router
-  ) { }
+  ) {
+    this.fb= new FormBuilder();
+  }
 
   ngOnInit(): void {
     this.initializeMenuControls();
