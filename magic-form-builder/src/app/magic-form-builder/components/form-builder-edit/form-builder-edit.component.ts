@@ -51,4 +51,8 @@ export class FormBuilderEditComponent implements OnInit {
   controlColumns(rowNumber: number): number[] {
     return new Array<number>(this.numberOfColumns[rowNumber]);
   }
+
+  addNewRow() {
+    this.numberOfRows += 1;
+  }
 }

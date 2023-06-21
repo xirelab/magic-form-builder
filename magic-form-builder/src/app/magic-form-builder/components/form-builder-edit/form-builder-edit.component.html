@@ -1,20 +1,13 @@
 <div class="form-builder-container">
 	<div class="form-builder-listing">
 		<div>
-			<h1>Form Builder</h1>
-			<br />
+			<h2>Form Builder</h2>
             <div>
 				<mat-form-field appearance="outline" style="width: 100%;">
 					<mat-label>Form Name</mat-label>
-					<input type="text" matInput>
+					<input type="text" matInput style="width: 50px;">
 					<!-- <mat-icon matSuffix>edit</mat-icon> -->
 				</mat-form-field>
-			</div>
-            <div style="width: 100%;">
-				<button style="width: 100%;">
-					Add new Row
-					<!-- <mat-icon>add</mat-icon> -->
-				</button>
 			</div>
 			<br />
             <div style="width: 100%; display: block;">
@@ -32,8 +25,8 @@
             </div>
             <br />
             <div style="width: 100%; display: flex;">
-                <button style="width: 100%;">Cancel</button>
-                <button style="width: 100%;">Save</button>
+                <button mat-raised-button color="warn" class="btn">Cancel</button>
+                <button mat-raised-button class="btn" color="accent">Save</button>
             </div>
 		</div>
 	</div>
@@ -49,5 +42,14 @@
                 </div>
             </div>
         </div>
+        <div style="width: 99%;">
+            <button mat-raised-button color="primary" class="btn btn-add" (click)="addNewRow()">
+                ADD NEW ROW
+                <!-- <mat-icon>add</mat-icon> -->
+            </button>
+        </div>
 	</div>
+    <div class="form-builder-props">
+
+    </div>
 </div>

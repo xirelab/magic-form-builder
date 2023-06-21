@@ -4,28 +4,42 @@
     width: 100%;
     height: 100%;
     // background-color: greenyellow;
-    margin: 20px auto;
+    // margin: 20px auto;
     overflow-y: auto;
 }
 
 .form-builder-listing {
     display: flex;
     flex-direction: column;
-    width: 20%;
+    width: 15%;
     height: auto !important;
-    background-color: rgb(231, 247, 207);
+    background-color: rgb(207, 224, 247);
     padding:  5px;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .form-builder-view {
     display: flex;
-    width: 80%;
+    width: 70%;
     height: auto !important;
     background-color: white;
     padding:  0px;
     overflow-x: hidden;
     overflow-y: auto;
+    border: 1px solid rgb(100, 147, 242);
+    border-radius: 10px;
+}
+
+.form-builder-props {
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    height: auto !important;
+    background-color: rgb(231, 247, 207);
+    padding:  5px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .menu-container {
@@ -45,7 +59,7 @@
 
 .menu-list {
     min-height: 60px;
-    background: white;
+    // background: white;
     overflow: hidden;
     display: block;
     // background-color: rgb(238, 151, 151);
@@ -61,7 +75,29 @@
     align-items: center;
     justify-content: space-between;
     cursor: move;
-    background-color: rgb(173, 241, 142);
+    background-color: rgb(234, 179, 245);
     font-size: 14px;
     font-weight: 500;
+}
+
+.btn {
+    width: 100%; 
+    margin: 5px; 
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-Cancel {
+    color: rgb(254, 254, 254); 
+    background-color: rgb(238, 25, 18);
+}
+
+.btn-save {
+    color: rgb(255, 255, 255); 
+    background-color: green;
+}
+
+.btn-add {
+    color: rgb(89, 71, 232); 
+    background-color: rgb(196, 242, 196);
 }
