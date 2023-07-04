@@ -1,15 +1,8 @@
-<div class="form-builder-container">
+<div class="form-builder-container" cdkDropListGroup>
 	<div class="form-builder-listing">
 		<div>
 			<h2>Form Builder</h2>
-        <div>
-          <mat-form-field appearance="outline" style="width: 100%;">
-            <mat-label>Form Name</mat-label>
-            <input matInput placeholder="Placeholder">
-            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-          </mat-form-field>
-        </div>
-        <br />
+        <h4>Drag and drop controls</h4>
         <div style="width: 100%; display: block;">
             <div class="menu-container">
                 <div class="menu-list" 
@@ -18,28 +11,45 @@
                     [cdkDropListData]="menuControls"
                     [cdkDropListEnterPredicate]="noReturnPredicate">
                     <div class="menu-box" *ngFor="let item of menuControls" cdkDrag>
-                        {{item.Type}}
+                        {{FormBuilderControlTypes[item.Type]}}
                     </div>
                 </div>
             </div>
         </div>
         <br />
         <div style="width: 100%; display: flex;">
-          <button mat-raised-button color="warn" class="btn">Cancel</button>
-          <button mat-raised-button class="btn" color="accent">Save</button>
+          <button class="btn btn-cancel">Cancel</button>
+          <button class="btn btn-save">Save</button>
         </div>
 		</div>
 	</div>
-	<div class="form-builder-view">
-    <div class="" *ngFor="let control of controlArray(); let i = index;" >
-      <div class="" *ngFor="let control of controlColumns(i); let j = index;">
-        <div class="">
-          <div class="">
-            <div>
 
+  <!-- Body -->
+	<div class="form-builder">
+    <div class="form-builder-row" *ngFor="let control of controlArray(); let i = index;" >
+      <div class="form-builder-column" *ngFor="let control of controlColumns(i); let j = index;">
+        <div class="form-builder-container">
+          <div class="form-builder-controls-container">
+            <div class="form-builder-controls-list" 
+                 cdkDropList
+                 [cdkDropListData]="getPageControls(i, j)"
+                 (cdkDropListDropped)="drop($event, i, j)">
+              <div class="form-builder-control-box" *ngFor="let control of getPageControls(i, j)" cdkDrag>
+                <!-- <app-form-builder-controls class=""
+                  [control]="control" [form]="form">
+                </app-form-builder-controls> -->
+                {{FormBuilderControlTypes[control.Type]}}
+                <!-- <div class="">
+                  <mat-icon>edit</mat-icon>
+                  <mat-icon>delete</mat-icon>
+                </div> -->
+              </div>
             </div>
           </div>
         </div>
+      </div>
+      <div>
+        <button>+ column</button>
       </div>
     </div>
     <div style="width: 99%;">
@@ -49,43 +59,45 @@
       </button>
     </div>
 	</div>
-    <div class="form-builder-props">
-      <h3>Form Properties</h3>
-      <div>
-        <mat-form-field appearance="outline" style="width: 100%;">
-          <mat-label>Form Name</mat-label>
-          <input matInput placeholder="Placeholder">
-        </mat-form-field>
-      </div>
-      <div>
-        <mat-form-field appearance="outline" style="width: 100%;">
-          <mat-label>Internal Id</mat-label>
-          <input matInput placeholder="Placeholder">
-        </mat-form-field>
-      </div>
-      <div>
-        <mat-form-field appearance="outline" style="width: 100%;">
-          <mat-label>Width</mat-label>
-          <input matInput placeholder="Placeholder">
-        </mat-form-field>
-      </div>
-      <div>
-        <mat-form-field appearance="outline" style="width: 100%;">
-          <mat-label>Align</mat-label>
-          <input matInput placeholder="Placeholder">
-        </mat-form-field>
-      </div>
-      <div>
-        <mat-form-field appearance="outline" style="width: 100%;">
-          <mat-label>Background color</mat-label>
-          <input type="color" matInput placeholder="Placeholder">
-        </mat-form-field>
-      </div>
-      <div>
-        <mat-form-field appearance="outline" style="width: 100%;">
-          <mat-label>Background Image</mat-label>
-          <input matInput placeholder="Placeholder">
-        </mat-form-field>
-      </div>
+
+  <!-- Properties Side panel -->
+  <div class="form-builder-props">
+    <h3>Form Properties</h3>
+    <div>
+      <mat-form-field appearance="outline" style="width: 100%;">
+        <!-- <mat-label>Form Name</mat-label> -->
+        <input matInput placeholder="Form Name">
+      </mat-form-field>
     </div>
+    <div>
+      <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>Internal Id</mat-label>
+        <input matInput placeholder="Placeholder">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>Width</mat-label>
+        <input matInput placeholder="Placeholder">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>Align</mat-label>
+        <input matInput placeholder="Placeholder">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>Background color</mat-label>
+        <input type="color" matInput placeholder="Placeholder">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>Background Image</mat-label>
+        <input matInput placeholder="Placeholder">
+      </mat-form-field>
+    </div>
+  </div>
 </div>

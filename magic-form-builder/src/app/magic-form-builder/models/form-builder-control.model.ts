@@ -5,6 +5,8 @@ export class FormBuilderControlModel {
     Type: number;
     Key: string;
     Label: string;
+    RowNumber: number;
+    ColumnNumber: number;
 
     IsRequired?: boolean;
     Width?: number;
@@ -21,6 +23,8 @@ export class FormBuilderControlModel {
             type: number;
             key: string;
             label: string;
+            rowNumber: number;
+            columnNumber: number
         }
     }) {
         this.FormId = options.formId;
@@ -28,6 +32,8 @@ export class FormBuilderControlModel {
         this.Type = options.type;
         this.Key = options.key;
         this.Label = options.label;
+        this.RowNumber = options.rowNumber;
+        this.ColumnNumber = options.columnNumber;
 
         // this.IsRequired = false;
         // this.Width = 100;

@@ -7,12 +7,8 @@ import { FormBuilderEditComponent } from './components/form-builder-edit/form-bu
 import { FormBuilderPopupComponent } from './components/form-builder-popup/form-builder-popup.component';
 import { MagicFormBuilderRoutingModule } from './magic-form-builder.routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon'; 
-
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MaterialModule } from '../material.module';
 
 @NgModule({
   declarations: [
@@ -26,11 +22,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     CommonModule,
     MagicFormBuilderRoutingModule,
     ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatIconModule,
-
+    MaterialModule,
     DragDropModule
   ]
 })

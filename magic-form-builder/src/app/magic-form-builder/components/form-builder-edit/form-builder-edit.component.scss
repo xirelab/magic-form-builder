@@ -19,8 +19,12 @@
     overflow-x: hidden;
 }
 
-.form-builder-view {
-    display: flex;
+// End Form Builder Menu controls
+
+// Start Form Builder Edit
+
+.form-builder {
+    // display: grid;
     width: 70%;
     height: auto !important;
     background-color: white;
@@ -30,6 +34,70 @@
     border: 1px solid rgb(100, 147, 242);
     border-radius: 10px;
 }
+
+.form-builder-row {
+    position: relative;
+    border-bottom: dashed 2px rgb(198, 244, 198);
+    min-height: 60px;
+    background: white;
+    overflow: hidden;
+    display: block;
+    display: flex;
+    width: 100%;
+    // cursor: pointer;
+}
+
+.form-builder-column {
+    width: 100%;
+}
+
+.form-builder-container {
+    display: flex;
+    background-color: white;
+    overflow-x: hidden;
+    height: auto;
+}
+
+.form-builder-controls-container {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    // margin: 0 5px 15px 0;
+    display: inline-block;
+    vertical-align: top;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px;
+    border: dashed #999 1px;
+}
+
+.form-builder-controls-list {
+    position: relative;
+    min-height: 60px;
+    background: white;
+    overflow: hidden;
+    display: block;
+    padding-bottom: 20px;
+}
+
+.form-builder-control-box {
+    padding: 10px;
+    border: dashed 1px #6458a0;
+    color: rgba(0,0,0,0.87);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    cursor: move;
+    background: white;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+// End Form Builder Edit
+
+// Start Properties Panel
 
 .form-builder-props {
     display: flex;
@@ -78,6 +146,7 @@
     background-color: rgb(234, 179, 245);
     font-size: 14px;
     font-weight: 500;
+    height: 15px;
 }
 
 .btn {
@@ -85,9 +154,10 @@
     margin: 5px; 
     border-radius: 5px;
     cursor: pointer;
+    height: 30px;
 }
 
-.btn-Cancel {
+.btn-cancel {
     color: rgb(254, 254, 254); 
     background-color: rgb(238, 25, 18);
 }
@@ -101,3 +171,8 @@
     color: rgb(89, 71, 232); 
     background-color: rgb(196, 242, 196);
 }
+
+// material override
+// :host ::ng-deep .mdc-text-field .mdc-floating-label{
+//     top: 100%;
+// }
