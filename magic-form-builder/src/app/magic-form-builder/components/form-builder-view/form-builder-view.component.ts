@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-form-builder-view',
-  templateUrl: './form-builder-view.component.html',
-  styleUrls: ['./form-builder-view.component.scss']
+    selector: 'app-form-builder-view',
+    templateUrl: './form-builder-view.component.html',
+    styleUrls: ['./form-builder-view.component.scss'],
+    standalone: false
 })
 export class FormBuilderViewComponent implements OnInit {
 

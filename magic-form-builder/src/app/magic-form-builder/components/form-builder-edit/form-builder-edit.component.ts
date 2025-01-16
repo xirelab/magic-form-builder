@@ -8,9 +8,10 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { FormBuilderControlTypes } from '../../services/form-builder-enums';
 
 @Component({
-  selector: 'app-form-builder-edit',
-  templateUrl: './form-builder-edit.component.html',
-  styleUrls: ['./form-builder-edit.component.scss']
+    selector: 'app-form-builder-edit',
+    templateUrl: './form-builder-edit.component.html',
+    styleUrls: ['./form-builder-edit.component.scss'],
+    standalone: false
 })
 export class FormBuilderEditComponent implements OnInit {
 

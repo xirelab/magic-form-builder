@@ -5,9 +5,10 @@ import { FormBuilderControlModel } from '../../models/form-builder-control.model
 import { FormBuilderControlTypes } from '../../services/form-builder-enums';
 
 @Component({
-  selector: 'app-form-builder-controls',
-  templateUrl: './form-builder-controls.component.html',
-  styleUrls: ['./form-builder-controls.component.scss']
+    selector: 'app-form-builder-controls',
+    templateUrl: './form-builder-controls.component.html',
+    styleUrls: ['./form-builder-controls.component.scss'],
+    standalone: false
 })
 export class FormBuilderControlsComponent implements OnInit {
 
