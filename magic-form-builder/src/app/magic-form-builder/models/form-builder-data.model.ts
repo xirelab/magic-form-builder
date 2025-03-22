@@ -1,20 +1,12 @@
-export class FormBuilderDataModel {
-    Id?: number;
-    FormId?: number;
-    Controls?: FormBuilderControlDataModel[];
+import { FormBuilderBaseModel } from "./form-builder-base.model";
 
-    Status?: number;
-    CreatedBy?: number;
-    CreateDate?: Date;
+export class FormBuilderDataModel extends FormBuilderBaseModel {
+    formId?: number;
+    controls?: FormBuilderControlDataModel[];
 }
 
-export class FormBuilderControlDataModel {
-    Id?: number;
-    FormId?: number;
-    ControlId?: number;
-    Value?: string;
-
-    Status?: number;
-    CreatedBy?: number;
-    CreateDate?: Date;
+export class FormBuilderControlDataModel extends FormBuilderBaseModel {
+    formId?: number;
+    controlId?: number;
+    value?: string;
 }

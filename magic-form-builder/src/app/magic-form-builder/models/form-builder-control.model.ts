@@ -1,20 +1,20 @@
-export class FormBuilderControlModel {
-    Id?: number;
-    FormId: number;
-    Name: string;
-    Type: number;
-    Key: string;
-    Label: string;
-    RowNumber: number;
-    ColumnNumber: number;
+import { FormBuilderBaseModel } from "./form-builder-base.model";
 
-    IsRequired?: boolean;
-    Width?: number;
-    Position?: string;
+export class FormBuilderControlModel extends FormBuilderBaseModel {
+    formId: number;
+    name: string;
+    type: number;
+    key: string;
+    label: string;
+    rowNumber: number;
+    columnNumber: number;
 
-    Status?: number;
-    CreatedBy?: number;
-    CreateDate?: Date;
+    isRequired?: boolean;
+    width?: number;
+    height?: number;
+    positionX?: number;
+    positionY?: number;
+    alignment?: string;
 
     constructor({ options }: {
         options: {
@@ -27,16 +27,17 @@ export class FormBuilderControlModel {
             columnNumber: number
         }
     }) {
-        this.FormId = options.formId;
-        this.Name = options.name;
-        this.Type = options.type;
-        this.Key = options.key;
-        this.Label = options.label;
-        this.RowNumber = options.rowNumber;
-        this.ColumnNumber = options.columnNumber;
+        super();
+        this.formId = options.formId;
+        this.name = options.name;
+        this.type = options.type;
+        this.key = options.key;
+        this.label = options.label;
+        this.rowNumber = options.rowNumber;
+        this.columnNumber = options.columnNumber;
 
-        // this.IsRequired = false;
-        // this.Width = 100;
-        // this.Position = '';
+        // this.isRequired = false;
+        // this.width = 100;
+        // this.position = '';
     }
 }

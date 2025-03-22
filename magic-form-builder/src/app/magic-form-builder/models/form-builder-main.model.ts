@@ -1,14 +1,10 @@
+import { FormBuilderBaseModel } from "./form-builder-base.model";
 import { FormBuilderControlModel } from "./form-builder-control.model";
 
-export class FormBuilderModel {
-    Id?: number;
-    Name?: string;
-    NumberOfRows?: number;
-    NumberOfColumns?: number[];
-    NumberOfColumnsJson?: string;
-    Controls?: FormBuilderControlModel[];
-
-    Status?: number;
-    CreatedBy?: number;
-    CreateDate?: Date;
+export class FormBuilderModel extends FormBuilderBaseModel {
+    name?: string;
+    numberOfRows?: number;
+    numberOfColumns?: number[];
+    // NumberOfColumnsJson?: string;
+    controls?: FormBuilderControlModel[];
 }

@@ -11,7 +11,7 @@
                     [cdkDropListData]="menuControls"
                     [cdkDropListEnterPredicate]="noReturnPredicate">
                     <div class="menu-box" *ngFor="let item of menuControls" cdkDrag>
-                        {{FormBuilderControlTypes[item.Type]}}
+                        {{FormBuilderControlTypes[item.type]}}
                     </div>
                 </div>
             </div>
@@ -38,7 +38,7 @@
                 <!-- <app-form-builder-controls class=""
                   [control]="control" [form]="form">
                 </app-form-builder-controls> -->
-                {{FormBuilderControlTypes[control.Type]}}
+                {{FormBuilderControlTypes[control.type]}}
                 <!-- <div class="">
                   <mat-icon>edit</mat-icon>
                   <mat-icon>delete</mat-icon>

@@ -1,12 +1,12 @@
 <form [formGroup]="form">
-    <div [ngSwitch]="control?.Type">
+    <div [ngSwitch]="control?.type">
 
         <!-- TEXT BOX -->
         <div *ngSwitchCase="types.textbox">
-            <mat-form-field appearance="fill" [style.width]="width(control?.Width)" [ngClass]="{
-                'align-left': control?.Position==='left',
-                'align-right': control?.Position==='right',
-                'align-center': control?.Position==='center'}">
+            <mat-form-field appearance="fill" [style.width]="width(control?.width)" [ngClass]="{
+                'align-left': control?.alignment==='left',
+                'align-right': control?.alignment==='right',
+                'align-center': control?.alignment==='center'}">
                 <mat-label>Input</mat-label>
                 <input matInput>
             </mat-form-field>

@@ -64,7 +64,7 @@ export class FormBuilderEditComponent implements OnInit {
   }
 
   getPageControls(i: number, j: number): FormBuilderControlModel[] {
-    return this.pageControls?.filter(x => x.RowNumber === i && x.ColumnNumber === j);
+    return this.pageControls?.filter(x => x.rowNumber === i && x.columnNumber === j);
   }
 
   drop($event: CdkDragDrop<FormBuilderControlModel[]>, i: number, j: number) {
@@ -73,17 +73,17 @@ export class FormBuilderEditComponent implements OnInit {
       moveItemInArray($event.container.data, $event.previousIndex, $event.currentIndex);
     } else {
       let dragControl = $event.previousContainer.data[$event.previousIndex];
-      let currentRowNumber = dragControl.RowNumber;
-      let currentColumnNumber = dragControl.ColumnNumber;
+      let currentRowNumber = dragControl.rowNumber;
+      let currentColumnNumber = dragControl.columnNumber;
 
       // open popup and mappings
 
-      dragControl.RowNumber = i;
-      dragControl.ColumnNumber = j;
+      dragControl.rowNumber = i;
+      dragControl.columnNumber = j;
 
       $event.container.data.push(dragControl);
 
-      this.pageControls = this.pageControls.filter(x => x.RowNumber != i || x.ColumnNumber != j);
+      this.pageControls = this.pageControls.filter(x => x.rowNumber != i || x.columnNumber != j);
       this.pageControls.push(...$event.container.data);
     }
 

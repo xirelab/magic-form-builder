@@ -23,7 +23,7 @@ export class FormBuilderControlsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.formValue = this.control ? this.form?.get(this.control.Key)?.value || '' : '';
+    this.formValue = this.control ? this.form?.get(this.control.key)?.value || '' : '';
   }
 
   width = (width?: number) => `${width}%`;
