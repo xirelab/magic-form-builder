@@ -3,6 +3,8 @@
     <div>
       <h2>Form Builder</h2>
       <h4>Drag and drop controls</h4>
+      
+      <!-- MENU -->
       <div style="width: 100%; display: block;">
         <div class="menu-container">
           <div class="menu-list" cdkDropList cdkDropListSortingDisabled [cdkDropListData]="menuControls"
@@ -14,6 +16,8 @@
         </div>
       </div>
       <br />
+
+      <!-- Action buttons -->
       <div style="width: 95%; padding: 2px;">
         <button class="btn" style="background-color: rgb(249, 249, 238);">Preview</button>
       </div>
@@ -26,17 +30,17 @@
 
   <!-- Body -->
   <div class="form-builder">
-    <div class="form-builder-row" *ngFor="let row of controlRows(); let i = index;">
-      <div class="form-builder-column" *ngFor="let section of controlColumns(row); let j = index;">
+    <div class="form-builder-row" *ngFor="let row of getRows(); let i = index;">
+      <div class="form-builder-column" *ngFor="let section of getSections(row); let j = index;">
         <div class="form-builder-container">
           <div class="form-builder-controls-container">
             <div class="form-builder-controls-list" cdkDropList [cdkDropListData]="getControls(section)"
               (cdkDropListDropped)="drop($event, section)">
               <div class="form-builder-control-box" *ngFor="let control of getControls(section)" cdkDrag>
-                <!-- <app-form-builder-controls class=""
+                <app-form-builder-controls class=""
                   [control]="control" [form]="form">
-                </app-form-builder-controls> -->
-                {{formBuilderControlTypes[control.type]}}
+                </app-form-builder-controls>
+                <!-- {{formBuilderControlTypes[control.type]}} -->
                 <!-- <div class="">
                   <mat-icon>edit</mat-icon>
                   <mat-icon>delete</mat-icon>
@@ -45,12 +49,16 @@
             </div>
           </div>
         </div>
-        <div class="section-edit-controls" *ngIf="controlColumns(row).length > 1">
+
+        <!-- Section action buttons -->
+        <div class="section-edit-controls" *ngIf="getSections(row).length > 1">
           <mat-icon class="delete-icon" (click)="deleteSection(section)">delete_forever</mat-icon>
           <mat-icon class="arrow-icon" (click)="moveSectionLeft(row, section)">keyboard_arrow_left</mat-icon>
           <mat-icon class="arrow-icon" (click)="moveSectionRight(row, section)">keyboard_arrow_right</mat-icon>
         </div>
       </div>
+
+      <!-- Row action buttons -->
       <div class="form-edit-controls">
         <mat-icon class="split-icon" (click)="addNewSection(row)">horizontal_split</mat-icon>
         <mat-icon class="delete-icon" (click)="deleteRow(row)">delete_forever</mat-icon>

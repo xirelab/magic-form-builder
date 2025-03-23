@@ -1,6 +1,6 @@
-import { FormBuilderControlTypes } from "../services/form-builder-enums";
+import { FormBuilderControlTypes } from "./form-builder-enums";
 
-export const MenuControlsMock : any[] = [
+export const MenuControlsList : any[] = [
     {
         Type: FormBuilderControlTypes.textbox,
     },

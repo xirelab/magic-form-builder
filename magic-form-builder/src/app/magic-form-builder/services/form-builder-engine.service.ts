@@ -15,15 +15,15 @@ export class FormBuilderEngineService {
     if (!form) {
       const group: any = {};
       controls.forEach(control => {
-        group[control.Key] = this.createFormControl(control, values);
+        group[control.key] = this.createFormControl(control, values);
       });
       return new UntypedFormGroup(group);
     } else {
       controls.forEach(control => {
-        if (form.contains(control.Key)) {
-          form.removeControl(control.Key);
+        if (form.contains(control.key)) {
+          form.removeControl(control.key);
         }
-        form.addControl(control.Key, this.createFormControl(control, values));
+        form.addControl(control.key, this.createFormControl(control, values));
       });
       return form;
     }
@@ -32,26 +32,26 @@ export class FormBuilderEngineService {
   buildFormSingle({ control, values }: {control: FormBuilderControlModel; values: FormBuilderDataModel;}, form: UntypedFormGroup) {
     if (!form) {
       const group: any = {};
-      group[control.Key] = this.createFormControl(control, values);
+      group[control.key] = this.createFormControl(control, values);
       return new UntypedFormGroup(group);
     } else {
-      if (form.contains(control.Key)) {
-        form.removeControl(control.Key);
+      if (form.contains(control.key)) {
+        form.removeControl(control.key);
       }
-      form.addControl(control.Key, this.createFormControl(control, values));
+      form.addControl(control.key, this.createFormControl(control, values));
       return form;
     }
   }
 
   private createFormControl(control: FormBuilderControlModel, values: FormBuilderDataModel): UntypedFormControl {
-    let controlValue = values?.Controls?.find(x => x.Id === control.Id)?.Value ?? '';
+    let controlValue = values?.controls?.find(x => x.id === control.id)?.value ?? '';
     let value = this.isValueNumber(control) ? +controlValue : controlValue;
-    return control?.IsRequired ? new UntypedFormControl(value, Validators.required) : new UntypedFormControl(value);
+    return control?.isRequired ? new UntypedFormControl(value, Validators.required) : new UntypedFormControl(value);
   }
 
   private isValueNumber(control: FormBuilderControlModel) : boolean {
     // This list has to update
-    return control?.Type === FormBuilderControlTypes.dropdown ||
-           control?.Type === FormBuilderControlTypes.radiobutton;
+    return control?.type === FormBuilderControlTypes.dropdown ||
+           control?.type === FormBuilderControlTypes.radiobutton;
   }
 }

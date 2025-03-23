@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { MenuControlsMock } from '../../mock-data/menu-controls.mock';
+import { MenuControlsList } from '../../services/menu-controls-list';
 import { FormBuilderControlModel } from '../../models/form-builder-control.model';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { FormBuilderControlTypes } from '../../services/form-builder-enums';
@@ -40,7 +40,7 @@ export class FormBuilderEditComponent implements OnInit {
   }
 
   private initializeMenuControls() {
-    this.menuControls = MenuControlsMock;
+    this.menuControls = MenuControlsList;
   }
 
   private initializeForm() {
@@ -52,17 +52,25 @@ export class FormBuilderEditComponent implements OnInit {
     return false;
   }
 
-  controlRows(): FormBuilderRowModel[] {
+  // Get methods
+
+  getRows(): FormBuilderRowModel[] {
     return this.formBuilder.rows
       ?.sort((a, b) => a.rowNumber - b.rowNumber)
       ?.filter(x => x.isVisible) ?? []
   }
 
-  controlColumns(row: FormBuilderRowModel): FormBuilderSectionModel[] {
+  getSections(row: FormBuilderRowModel): FormBuilderSectionModel[] {
     return row?.sections
       ?.sort((a, b) => a.columnNumber - b.columnNumber)
       ?.filter((x: FormBuilderSectionModel) => x.isVisible) ?? []
   }
+
+  getControls(section: FormBuilderSectionModel): FormBuilderControlModel[] {
+    return section?.controls ?? [];
+  }
+
+  // Row and Section actions
 
   addNewRow() {
     this.formBuilder.rows.push(new FormBuilderRowModel(this.formBuilder.rows.length));
@@ -125,18 +133,16 @@ export class FormBuilderEditComponent implements OnInit {
     leftSesction.columnNumber = columnNumber;
   }
 
-  getControls(section: FormBuilderSectionModel): FormBuilderControlModel[] {
-    return section?.controls ?? [];
-  }
+  // Drop
 
   drop($event: CdkDragDrop<FormBuilderControlModel[]>, section: FormBuilderSectionModel) {
-    console.log('dropped: ', $event);
+    console.log('dropped event: ', $event);
     if ($event.previousContainer === $event.container) {
       moveItemInArray($event.container.data, $event.previousIndex, $event.currentIndex);
     } else {
       let dragControl = $event.previousContainer.data[$event.previousIndex];
-      let currentRowNumber = dragControl.rowNumber;
-      let currentColumnNumber = dragControl.columnNumber;
+      // let currentRowNumber = dragControl.rowNumber;
+      // let currentColumnNumber = dragControl.columnNumber;
 
       // open popup and mappings
 
@@ -147,7 +153,10 @@ export class FormBuilderEditComponent implements OnInit {
 
       // this.pageControls = this.pageControls.filter(x => x.rowNumber != i || x.columnNumber != j);
       // this.pageControls.push(...$event.container.data);
-      section.controls.push(...$event.container.data);
+
+      // section.controls.push(...$event.container.data);
+
+      console.log('model after dropped: ', this.formBuilder);
     }
 
   }
