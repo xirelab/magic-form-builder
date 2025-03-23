@@ -28,7 +28,7 @@
 
 .form-builder {
     // display: grid;
-    width: 70%;
+    width: 71%;
     height: auto !important;
     background-color: white;
     padding:  0px;
@@ -76,7 +76,7 @@
 }
 
 .form-builder-controls-list {
-    position: relative;
+    // position: relative;
     min-height: 60px;
     background: white;
     overflow: hidden;
@@ -100,18 +100,7 @@
 
 // End Form Builder Edit
 
-// Start Properties Panel
-
-.form-builder-props {
-    display: flex;
-    flex-direction: column;
-    width: 15%;
-    height: auto !important;
-    background-color: rgb(231, 247, 207);
-    padding:  5px;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
+// Start Controls Panel
 
 .menu-container {
     width: 100%;
@@ -179,3 +168,26 @@
 // :host ::ng-deep .mdc-text-field .mdc-floating-label{
 //     top: 100%;
 // }
+
+// form and section edit controls
+.form-edit-controls {
+    // display: grid; 
+    margin-left: -13px; 
+    background-color: white; 
+    padding: 2px 0 4px 0;
+    height: 60px;
+    display: none;
+}
+
+.form-builder-row:hover .form-edit-controls {display: grid;}
+
+.section-edit-controls {
+    display: none;
+    margin-top: -23px;
+    background-color: white;
+    // max-height: 18px;
+    max-width: 54px;
+    // padding: 0px 0px 0px 0px;
+}
+
+.form-builder-column:hover .section-edit-controls {display: flex;}

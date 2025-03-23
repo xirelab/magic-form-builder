@@ -1,0 +1,18 @@
+.property-container {
+    display: flex;
+    background-color: white;
+    overflow-x: hidden;
+    height: auto;
+}
+
+.form-builder-props {
+    display: flex;
+    flex-direction: column;
+    // width: 15%;
+    width: 100%;
+    height: auto !important;
+    background-color: rgb(231, 247, 207);
+    padding:  5px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}

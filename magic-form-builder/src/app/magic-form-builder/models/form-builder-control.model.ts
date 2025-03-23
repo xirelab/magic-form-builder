@@ -6,8 +6,8 @@ export class FormBuilderControlModel extends FormBuilderBaseModel {
     type: number;
     key: string;
     label: string;
-    rowNumber: number;
-    columnNumber: number;
+    rowNumber?: number;
+    columnNumber?: number;
 
     isRequired?: boolean;
     width?: number;
@@ -23,8 +23,8 @@ export class FormBuilderControlModel extends FormBuilderBaseModel {
             type: number;
             key: string;
             label: string;
-            rowNumber: number;
-            columnNumber: number
+            rowNumber?: number;
+            columnNumber?: number
         }
     }) {
         super();

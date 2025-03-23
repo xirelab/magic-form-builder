@@ -6,12 +6,15 @@ import { MenuControlsMock } from '../../mock-data/menu-controls.mock';
 import { FormBuilderControlModel } from '../../models/form-builder-control.model';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { FormBuilderControlTypes } from '../../services/form-builder-enums';
+import { FormBuilderModel } from '../../models/form-builder-main.model';
+import { FormBuilderRowModel } from '../../models/form-builder-row.model';
+import { FormBuilderSectionModel } from '../../models/form-builder-section.model';
 
 @Component({
-    selector: 'app-form-builder-edit',
-    templateUrl: './form-builder-edit.component.html',
-    styleUrls: ['./form-builder-edit.component.scss'],
-    standalone: false
+  selector: 'app-form-builder-edit',
+  templateUrl: './form-builder-edit.component.html',
+  styleUrls: ['./form-builder-edit.component.scss'],
+  standalone: false
 })
 export class FormBuilderEditComponent implements OnInit {
 
@@ -19,18 +22,16 @@ export class FormBuilderEditComponent implements OnInit {
   form!: FormGroup;
   builderForm!: FormGroup;
   menuControls: FormBuilderControlModel[] = [];
-  pageControls: FormBuilderControlModel[] = [];
-  FormBuilderControlTypes = FormBuilderControlTypes
+  formBuilder: FormBuilderModel = new FormBuilderModel();
 
-  numberOfRows: number = 1;
-  numberOfColumns: number[] = [1];
+  formBuilderControlTypes = FormBuilderControlTypes;
 
   constructor(
     // private fb: FormBuilder,
     // private matDialog: MatDialog,
     // private router: Router
   ) {
-    this.fb= new FormBuilder();
+    this.fb = new FormBuilder();
   }
 
   ngOnInit(): void {
@@ -49,25 +50,46 @@ export class FormBuilderEditComponent implements OnInit {
 
   noReturnPredicate() {
     return false;
-  } 
-
-  controlArray(): number[] {
-    return new Array<number>(this.numberOfRows);
   }
 
-  controlColumns(rowNumber: number): number[] {
-    return new Array<number>(this.numberOfColumns[rowNumber]);
+  controlArray(): FormBuilderRowModel[] {
+    return this.formBuilder.rows
+      ?.sort((a, b) => a.rowNumber - b.rowNumber)
+      ?.filter(x => x.isVisible) ?? []
+  }
+
+  controlColumns(row: FormBuilderRowModel): FormBuilderSectionModel[] {
+    return row?.sections
+      ?.sort((a, b) => a.columnNumber - b.columnNumber)
+      ?.filter((x: FormBuilderSectionModel) => x.isVisible) ?? []
   }
 
   addNewRow() {
-    this.numberOfRows += 1;
+    this.formBuilder.rows.push(new FormBuilderRowModel(this.formBuilder.rows.length));
   }
 
-  getPageControls(i: number, j: number): FormBuilderControlModel[] {
-    return this.pageControls?.filter(x => x.rowNumber === i && x.columnNumber === j);
+  deleteRow(row: FormBuilderRowModel) {
+    row.isVisible = false;
+    row.sections.forEach(x => x.isVisible = false);
   }
 
-  drop($event: CdkDragDrop<FormBuilderControlModel[]>, i: number, j: number) {
+  addNewSection(row: FormBuilderRowModel) {
+    row.sections.push(new FormBuilderSectionModel(row.rowNumber, row.sections.length));
+  }
+
+  deleteSection(section: FormBuilderSectionModel) {
+    section.isVisible = false;
+    let row = this.formBuilder.rows.find(x => x.rowNumber === section.rowNumber);
+    if (row && !(row.sections?.some(x => x.isVisible))) {
+      row.isVisible = false;
+    }
+  }
+
+  getControls(section: FormBuilderSectionModel): FormBuilderControlModel[] {
+    return section?.controls ?? [];
+  }
+
+  drop($event: CdkDragDrop<FormBuilderControlModel[]>, section: FormBuilderSectionModel) {
     console.log('dropped: ', $event);
     if ($event.previousContainer === $event.container) {
       moveItemInArray($event.container.data, $event.previousIndex, $event.currentIndex);
@@ -78,13 +100,14 @@ export class FormBuilderEditComponent implements OnInit {
 
       // open popup and mappings
 
-      dragControl.rowNumber = i;
-      dragControl.columnNumber = j;
+      // dragControl.rowNumber = i;
+      // dragControl.columnNumber = j;
 
       $event.container.data.push(dragControl);
 
-      this.pageControls = this.pageControls.filter(x => x.rowNumber != i || x.columnNumber != j);
-      this.pageControls.push(...$event.container.data);
+      // this.pageControls = this.pageControls.filter(x => x.rowNumber != i || x.columnNumber != j);
+      // this.pageControls.push(...$event.container.data);
+      section.controls.push(...$event.container.data);
     }
 
   }

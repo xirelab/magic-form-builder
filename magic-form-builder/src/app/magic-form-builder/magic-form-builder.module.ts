@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MaterialModule } from '../material.module';
 import { MagicFormBuilderComponent } from './container/magic-form-builder/magic-form-builder.component';
+import { FormBuilderPropsComponent } from './components/form-builder-props/form-builder-props.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { MagicFormBuilderComponent } from './container/magic-form-builder/magic-
     FormBuilderViewComponent,
     FormBuilderControlsComponent,
     FormBuilderEditComponent,
-    FormBuilderPopupComponent
+    FormBuilderPopupComponent,
+    FormBuilderPropsComponent
   ],
   imports: [
     CommonModule,
