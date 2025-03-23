@@ -52,7 +52,7 @@ export class FormBuilderEditComponent implements OnInit {
     return false;
   }
 
-  controlArray(): FormBuilderRowModel[] {
+  controlRows(): FormBuilderRowModel[] {
     return this.formBuilder.rows
       ?.sort((a, b) => a.rowNumber - b.rowNumber)
       ?.filter(x => x.isVisible) ?? []
@@ -73,6 +73,26 @@ export class FormBuilderEditComponent implements OnInit {
     row.sections.forEach(x => x.isVisible = false);
   }
 
+  moveRowUp(row: FormBuilderRowModel) {
+    let topRow = this.formBuilder.rows.find(x => x.rowNumber === row.rowNumber - 1);
+    if (topRow) {
+      this.swaprows(row, topRow);
+    }
+  }
+
+  moveRowDown(row: FormBuilderRowModel) {
+    let bottomRow = this.formBuilder.rows.find(x => x.rowNumber === row.rowNumber + 1);
+    if (bottomRow) {
+      this.swaprows(row, bottomRow);
+    }
+  }
+
+  private swaprows(row1: FormBuilderRowModel, row2: FormBuilderRowModel) {
+    let rowNumber = row1.rowNumber;
+    row1.rowNumber = row2.rowNumber;
+    row2.rowNumber = rowNumber;
+  }
+
   addNewSection(row: FormBuilderRowModel) {
     row.sections.push(new FormBuilderSectionModel(row.rowNumber, row.sections.length));
   }
@@ -83,6 +103,26 @@ export class FormBuilderEditComponent implements OnInit {
     if (row && !(row.sections?.some(x => x.isVisible))) {
       row.isVisible = false;
     }
+  }
+
+  moveSectionLeft(row: FormBuilderRowModel, section: FormBuilderSectionModel) {
+    let leftSesction = row.sections.find(x => x.columnNumber === section.columnNumber - 1);
+    if (leftSesction) {
+      this.swapSections(section, leftSesction);
+    }
+  }
+
+  moveSectionRight(row: FormBuilderRowModel, section: FormBuilderSectionModel) {
+    let rightSesction = row.sections.find(x => x.columnNumber === section.columnNumber + 1);
+    if (rightSesction) {
+      this.swapSections(section, rightSesction);
+    }
+  }
+
+  private swapSections(section: FormBuilderSectionModel, leftSesction: FormBuilderSectionModel) {
+    let columnNumber = section.columnNumber;
+    section.columnNumber = leftSesction.columnNumber;
+    leftSesction.columnNumber = columnNumber;
   }
 
   getControls(section: FormBuilderSectionModel): FormBuilderControlModel[] {

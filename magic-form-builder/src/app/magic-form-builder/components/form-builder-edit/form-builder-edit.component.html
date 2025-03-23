@@ -26,7 +26,7 @@
 
   <!-- Body -->
   <div class="form-builder">
-    <div class="form-builder-row" *ngFor="let row of controlArray(); let i = index;">
+    <div class="form-builder-row" *ngFor="let row of controlRows(); let i = index;">
       <div class="form-builder-column" *ngFor="let section of controlColumns(row); let j = index;">
         <div class="form-builder-container">
           <div class="form-builder-controls-container">
@@ -45,18 +45,17 @@
             </div>
           </div>
         </div>
-        <div class="section-edit-controls">
-          <mat-icon style="cursor: pointer; color: red;" (click)="deleteSection(section)">delete_forever</mat-icon>
-          <mat-icon style="cursor: pointer; color: blue;">keyboard_arrow_left</mat-icon>
-          <mat-icon style="cursor: pointer; color: blue;">keyboard_arrow_right</mat-icon>
+        <div class="section-edit-controls" *ngIf="controlColumns(row).length > 1">
+          <mat-icon class="delete-icon" (click)="deleteSection(section)">delete_forever</mat-icon>
+          <mat-icon class="arrow-icon" (click)="moveSectionLeft(row, section)">keyboard_arrow_left</mat-icon>
+          <mat-icon class="arrow-icon" (click)="moveSectionRight(row, section)">keyboard_arrow_right</mat-icon>
         </div>
       </div>
       <div class="form-edit-controls">
-        <mat-icon style="cursor: pointer; color: green; transform: rotate(90deg);"
-          (click)="addNewSection(row)">horizontal_split</mat-icon>
-        <mat-icon style="cursor: pointer; color: red;" (click)="deleteRow(row)">delete_forever</mat-icon>
-        <mat-icon style="cursor: pointer; color: blue;">keyboard_arrow_up</mat-icon>
-        <mat-icon style="cursor: pointer; color: blue;">keyboard_arrow_down</mat-icon>
+        <mat-icon class="split-icon" (click)="addNewSection(row)">horizontal_split</mat-icon>
+        <mat-icon class="delete-icon" (click)="deleteRow(row)">delete_forever</mat-icon>
+        <mat-icon class="arrow-icon" (click)="moveRowUp(row)">keyboard_arrow_up</mat-icon>
+        <mat-icon class="arrow-icon" (click)="moveRowDown(row)">keyboard_arrow_down</mat-icon>
       </div>
     </div>
     <div style="width: 99%;">
